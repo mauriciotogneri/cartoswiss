@@ -33,8 +33,9 @@ class Content extends StatelessWidget {
   Widget build(BuildContext context) {
     return GoogleMap(
       mapType: MapType.normal,
+      buildingsEnabled: false,
       initialCameraPosition: _cameraPosition,
-      onMapCreated: state.controller.complete,
+      onMapCreated: state.onMapCreated,
     );
   }
 }
