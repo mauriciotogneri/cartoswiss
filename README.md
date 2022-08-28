@@ -1,2 +1,1 @@
-# cartoswiss
-Carto Swiss
+# Carto Swiss
