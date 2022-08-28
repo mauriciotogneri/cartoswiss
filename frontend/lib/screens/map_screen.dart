@@ -32,6 +32,7 @@ class Content extends StatelessWidget {
         height: state.mapReady ? double.infinity : 1,
         child: GoogleMap(
           mapType: MapType.normal,
+          markers: state.markers,
           initialCameraPosition: state.initialPosition(),
           onMapCreated: state.onMapCreated,
         ),
