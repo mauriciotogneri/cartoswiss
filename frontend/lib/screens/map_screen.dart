@@ -1,5 +1,5 @@
-import 'package:cartoswiss/services/palette.dart';
 import 'package:cartoswiss/states/map_state.dart';
+import 'package:dafluta/dafluta.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -13,7 +13,6 @@ class MapScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Palette.black,
       body: Content(state),
     );
   }
@@ -24,18 +23,29 @@ class Content extends StatelessWidget {
 
   const Content(this.state);
 
-  CameraPosition get _cameraPosition => const CameraPosition(
-        target: LatLng(46.194641, 6.143514),
-        zoom: 18,
-      );
+  @override
+  Widget build(BuildContext context) {
+    return StateProvider<MapState>(
+      state: state,
+      builder: (context, state) => state.styleReady ? MapContent(state) : const Empty(),
+    );
+  }
+}
+
+class MapContent extends StatelessWidget {
+  final MapState state;
+
+  const MapContent(this.state);
 
   @override
   Widget build(BuildContext context) {
-    return GoogleMap(
-      mapType: MapType.normal,
-      buildingsEnabled: false,
-      initialCameraPosition: _cameraPosition,
-      onMapCreated: state.onMapCreated,
+    return SizedBox(
+      width: state.styleApplied ? double.infinity : 1,
+      child: GoogleMap(
+        mapType: MapType.normal,
+        initialCameraPosition: state.initialPosition(),
+        onMapCreated: state.onMapCreated,
+      ),
     );
   }
 }
