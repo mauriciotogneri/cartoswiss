@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:cartoswiss/model/place.dart';
 import 'package:cartoswiss/services/assets.dart';
+import 'package:cartoswiss/services/navigation.dart';
 import 'package:dafluta/dafluta.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -39,6 +40,7 @@ class MapState extends BaseState {
               latLng: place.latLng,
               zoom: 18,
             );
+            Navigation.placeScreen(place);
           },
         ),
       );
