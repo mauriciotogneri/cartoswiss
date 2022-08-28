@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base href="/">
+
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description" content="Carto Swiss">
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="tension node">
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCPL6CvomqqSACD3F28ZQpY2R93zDTtY_g",
+            authDomain: "cartoswiss.firebaseapp.com",
+            projectId: "cartoswiss",
+            storageBucket: "cartoswiss.appspot.com",
+            messagingSenderId: "455921951833",
+            appId: "1:455921951833:web:6b77637fb1edddfc5d7d48",
+            measurementId: "G-TNVZJ7CGP7"
+        };
+
+        firebase.initializeApp(firebaseConfig)
+    </script>
+
+    <title>Carto Swiss</title>
+    <link rel="manifest" href="manifest.json">
+
+    <script>
+        var serviceWorkerVersion = '3071991789';
+    </script>
+    <script src="flutter.js" defer></script>
+</head>
+
+<body>
+    <script>
+        window.addEventListener('load', function (ev) {
+            _flutter.loader.loadEntrypoint({
+                serviceWorker: {
+                    serviceWorkerVersion: serviceWorkerVersion,
+                }
+            }).then(function (engineInitializer) {
+                return engineInitializer.initializeEngine();
+            }).then(function (appRunner) {
+                return appRunner.runApp();
+            });
+        });
+    </script>
+</body>
+
+</html>

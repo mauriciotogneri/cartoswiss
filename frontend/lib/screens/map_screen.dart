@@ -27,7 +27,7 @@ class Content extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: Text(
-        'Map',
+        'Carto Swiss',
         style: TextStyle(color: Palette.white),
       ),
     );
