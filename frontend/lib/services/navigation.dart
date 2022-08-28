@@ -23,7 +23,6 @@ class Navigation {
   static void placeScreen(Place place) => get.routes.push(
         FadeRoute(
           PlaceScreen.instance(place),
-          duration: const Duration(seconds: 1),
           name: 'place',
         ),
       );
