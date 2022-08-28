@@ -10,6 +10,8 @@ dependencies:
   get_it: ^7.2.0
   dafluta: ^4.2.0
   url_strategy: ^0.2.0
+  google_maps_flutter: ^2.1.12
+  google_maps_flutter_web: ^0.4.0+2
 
   flutter:
     sdk: flutter
