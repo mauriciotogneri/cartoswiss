@@ -30,20 +30,18 @@ class MapState extends BaseState {
     ));
   }
 
-  void _addPlace(Place place) {
-    markers.add(
-      Marker(
-        markerId: MarkerId(place.id),
-        position: place.latLng,
-        onTap: () {
-          _centerTo(
-            latLng: place.latLng,
-            zoom: 18,
-          );
-        },
-      ),
-    );
-  }
+  void _addPlace(Place place) => markers.add(
+        Marker(
+          markerId: MarkerId(place.id),
+          position: place.latLng,
+          onTap: () {
+            _centerTo(
+              latLng: place.latLng,
+              zoom: 18,
+            );
+          },
+        ),
+      );
 
   Future _centerTo({
     required LatLng latLng,
