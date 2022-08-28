@@ -19,7 +19,7 @@ class PlaceScreen extends StatelessWidget {
         backgroundColor: Palette.white,
         titleTextStyle: const TextStyle(
           color: Palette.black,
-          fontSize: 20,
+          fontSize: 16,
           fontWeight: FontWeight.bold,
         ),
         elevation: 0,
