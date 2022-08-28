@@ -5,20 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapState extends BaseState {
-  String _mapStyle = '';
-  bool styleApplied = false;
+  bool mapReady = false;
 
   final Completer<GoogleMapController> _completer = Completer();
-
-  bool get styleReady => _mapStyle.isNotEmpty;
-
-  @override
-  Future onLoad() async {
-    super.onLoad();
-
-    _mapStyle = await rootBundle.loadString(Assets.MAP_STYLE);
-    notify();
-  }
 
   CameraPosition initialPosition() => const CameraPosition(
         target: LatLng(46.194641, 6.143514),
@@ -27,8 +16,10 @@ class MapState extends BaseState {
 
   Future onMapCreated(GoogleMapController controller) async {
     _completer.complete(controller);
-    await controller.setMapStyle(_mapStyle);
-    styleApplied = true;
+    final String mapStyle = await rootBundle.loadString(Assets.MAP_STYLE);
+    await controller.setMapStyle(mapStyle);
+    await Future.delayed(const Duration(seconds: 1));
+    mapReady = true;
     notify();
   }
 

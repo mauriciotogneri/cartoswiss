@@ -27,24 +27,14 @@ class Content extends StatelessWidget {
   Widget build(BuildContext context) {
     return StateProvider<MapState>(
       state: state,
-      builder: (context, state) => state.styleReady ? MapContent(state) : const Empty(),
-    );
-  }
-}
-
-class MapContent extends StatelessWidget {
-  final MapState state;
-
-  const MapContent(this.state);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: state.styleApplied ? double.infinity : 1,
-      child: GoogleMap(
-        mapType: MapType.normal,
-        initialCameraPosition: state.initialPosition(),
-        onMapCreated: state.onMapCreated,
+      builder: (context, state) => SizedBox(
+        width: state.mapReady ? double.infinity : 1,
+        height: state.mapReady ? double.infinity : 1,
+        child: GoogleMap(
+          mapType: MapType.normal,
+          initialCameraPosition: state.initialPosition(),
+          onMapCreated: state.onMapCreated,
+        ),
       ),
     );
   }
