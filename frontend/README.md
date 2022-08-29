@@ -7,6 +7,9 @@
 * Download data from
     + Google Places API
     + OpenStreetMap API
+* Create mobile app
+    + Tag new places
+    + Track GPS coordinates to know what parts of the city have been mapped
 
 https://pub.dev/packages/geoflutterfire
 https://firebase.google.com/docs/firestore/solutions/geoqueries
