@@ -1,3 +1,13 @@
+# TODO
+* Finish place details screen
+* Implement basic search
+    + Search by where and what
+    + Search by location and radius
+* Add option to submit a new place
+* Download data from
+    + Google Places API
+    + OpenStreetMap API
+
 https://pub.dev/packages/geoflutterfire
 https://firebase.google.com/docs/firestore/solutions/geoqueries
 
